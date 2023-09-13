@@ -72,14 +72,16 @@ const start = async () => {
 };
 await start();
 const startAgain = async () => {
-    await inquirer.prompt([
+    await inquirer
+        .prompt([
         {
-            type: 'confirm',
-            name: 'startAgain',
-            message: 'Do you want to start again?'
-        }
-    ]).then((answer) => {
-        answer.startAgain === true ? start() : console.log(chalk.red('GoodBye!'));
+            type: "confirm",
+            name: "startAgain",
+            message: "Do you want to start again?",
+        },
+    ])
+        .then((answer) => {
+        answer.startAgain === true ? start() : console.log(chalk.red("GoodBye!"));
     })
         .catch((error) => {
         console.log(error);
